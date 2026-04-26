@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MoveX Dispatch System - Complete Fixed Version</title>
+    <title>Zride Dispatch System - Complete Fixed Version</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
@@ -1991,7 +1991,7 @@
                 <span class="artistic-x-login">X</span>
             </div>
             
-            <h2>MoveX Dispatch System</h2>
+            <h2>Zride Dispatch System</h2>
             <p style="color: var(--gray); margin-bottom: 30px;">Login to access the dispatch dashboard</p>
             
             <div class="form-group">
@@ -2619,7 +2619,7 @@
                             <div class="ad-content">
                                 <img src="" alt="Advertisement" class="ad-image" id="adImagePreview">
                                 <div class="ad-text">
-                                    <div class="marquee-text" id="adTextPreview">Welcome to MoveX Dispatch</div>
+                                    <div class="marquee-text" id="adTextPreview">Welcome to Zride Dispatch</div>
                                 </div>
                             </div>
                             <div class="ad-timer" id="adTimer">00:30</div>
@@ -2712,7 +2712,7 @@
                     
                     <div class="form-group">
                         <label>Advertisement Text *</label>
-                        <textarea class="form-control" id="adText" rows="3" placeholder="Enter moving text">Welcome to MoveX Dispatch</textarea>
+                        <textarea class="form-control" id="adText" rows="3" placeholder="Enter moving text">Welcome to Zride Dispatch</textarea>
                     </div>
                     
                     <div class="form-group">
@@ -3255,7 +3255,7 @@
         // INITIALIZATION
         // =============================================
         document.addEventListener('DOMContentLoaded', function() {
-            console.log("Initializing MoveX Dispatch System...");
+            console.log("Initializing Zride Dispatch System...");
             
             initializeData();
             initializeSocket();
@@ -3264,7 +3264,7 @@
             startTimeUpdate();
             simulateLiveData();
             
-            console.log("MoveX Dispatch System initialized!");
+            console.log("Zride Dispatch System initialized!");
         });
 
         // =============================================
@@ -3312,13 +3312,13 @@
 
             // Sample Admins
             appData.admins = [
-                { id: 'ADM001', username: 'admin', fullName: 'Super Admin', email: 'admin@movex.com', accessLevel: 'Super Admin', status: 'Active' },
-                { id: 'ADM002', username: 'dispatcher1', fullName: 'John Dispatcher', email: 'john@movex.com', accessLevel: 'Dispatcher', status: 'Active' }
+                { id: 'ADM001', username: 'admin', fullName: 'Super Admin', email: 'admin@Zride.com', accessLevel: 'Super Admin', status: 'Active' },
+                { id: 'ADM002', username: 'dispatcher1', fullName: 'John Dispatcher', email: 'john@Zride.com', accessLevel: 'Dispatcher', status: 'Active' }
             ];
 
             // Sample Advertisements
             appData.advertisements = [
-                { id: 'AD001', title: 'Welcome', text: 'Welcome to MoveX!', duration: 30, status: 'active' },
+                { id: 'AD001', title: 'Welcome', text: 'Welcome to Zride!', duration: 30, status: 'active' },
                 { id: 'AD002', title: 'Safety First', text: 'Always wear seatbelt!', duration: 25, status: 'active' }
             ];
 
@@ -3330,7 +3330,7 @@
         // SOCKET.IO CONNECTION - FIXED URL
         // =============================================
         function initializeSocket() {
-            const serverUrl = 'https://movex-server-8fkl.onrender.com';
+            const serverUrl = 'https://Zride-server-8fkl.onrender.com';
             
             console.log('Connecting to server:', serverUrl);
             
@@ -4348,7 +4348,7 @@
             const password = license.slice(-4);
             
             // Your actual driver app URL
-            const driverAppUrl = 'https://movex-driver-app.onrender.com';
+            const driverAppUrl = 'https://Zride-driver-app.onrender.com';
             
             // Create a secure login link with parameters
             const loginLink = `${driverAppUrl}?driver=${encodeURIComponent(name.toLowerCase())}&key=${password}`;
@@ -4369,10 +4369,10 @@
             
             if (choice === '1') {
                 // Email option - FIXED: Properly concatenated string
-                const subject = encodeURIComponent('MoveX Driver Login Credentials');
+                const subject = encodeURIComponent('Zride Driver Login Credentials');
                 const body = encodeURIComponent(
                     `Hello ${name},\n\n` +
-                    `Your MoveX Driver account has been created.\n\n` +
+                    `Your Zride Driver account has been created.\n\n` +
                     `🔐 LOGIN CREDENTIALS:\n` +
                     `━━━━━━━━━━━━━━━━━━━━━━━\n` +
                     `Driver Name: ${name}\n` +
@@ -4382,7 +4382,7 @@
                     `${loginLink}\n\n` +
                     `Open this link on your phone and login with the credentials above.\n\n` +
                     `Safe driving!\n` +
-                    `MoveX Dispatch Team`
+                    `Zride Dispatch Team`
                 );
                 window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`, '_blank');
                 alert('✅ Gmail opened! Click Send.');
@@ -4738,7 +4738,7 @@
                 const doc = new jsPDF();
                 
                 doc.setFontSize(20);
-                doc.text('MoveX Dispatch Report', 20, 20);
+                doc.text('Zride Dispatch Report', 20, 20);
                 
                 doc.setFontSize(12);
                 doc.text(`Period: ${results.from} to ${results.to}`, 20, 40);
@@ -4749,13 +4749,13 @@
                 doc.text(`Canceled: ${results.canceled}`, 20, 90);
                 doc.text(`No-show: ${results.noshow}`, 20, 100);
                 
-                doc.save(`movex_report_${results.from}_to_${results.to}.pdf`);
+                doc.save(`Zride_report_${results.from}_to_${results.to}.pdf`);
                 
             } else if (format === 'excel') {
                 const wb = XLSX.utils.book_new();
                 const ws = XLSX.utils.json_to_sheet(results.filtered);
                 XLSX.utils.book_append_sheet(wb, ws, 'Report');
-                XLSX.writeFile(wb, `movex_report_${results.from}_to_${results.to}.xlsx`);
+                XLSX.writeFile(wb, `Zride_report_${results.from}_to_${results.to}.xlsx`);
                 
             } else if (format === 'csv') {
                 const ws = XLSX.utils.json_to_sheet(results.filtered);
@@ -4764,7 +4764,7 @@
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = `movex_report_${results.from}_to_${results.to}.csv`;
+                a.download = `Zride_report_${results.from}_to_${results.to}.csv`;
                 a.click();
                 
             } else if (format === 'print') {
@@ -4772,7 +4772,7 @@
                 printWindow.document.write(`
                     <html>
                         <head>
-                            <title>MoveX Report</title>
+                            <title>Zride Report</title>
                             <style>
                                 body { font-family: Arial; padding: 20px; }
                                 h1 { color: #6a11cb; }
@@ -4784,7 +4784,7 @@
                             </style>
                         </head>
                         <body>
-                            <h1>MoveX Dispatch Report</h1>
+                            <h1>Zride Dispatch Report</h1>
                             <p>Period: ${results.from} to ${results.to}</p>
                             <div class="stats">
                                 <div class="stat"><h3>Total Trips</h3><p>${results.totalTrips}</p></div>
@@ -4872,7 +4872,7 @@
                 const doc = new jsPDF();
                 
                 doc.setFontSize(20);
-                doc.text('MoveX Trip History', 20, 20);
+                doc.text('Zride Trip History', 20, 20);
                 
                 let y = 40;
                 filtered.slice(0, 30).forEach((trip, i) => {
@@ -4885,13 +4885,13 @@
                     y += 10;
                 });
                 
-                doc.save(`movex_history_${new Date().toISOString().split('T')[0]}.pdf`);
+                doc.save(`Zride_history_${new Date().toISOString().split('T')[0]}.pdf`);
                 
             } else if (format === 'excel') {
                 const wb = XLSX.utils.book_new();
                 const ws = XLSX.utils.json_to_sheet(filtered);
                 XLSX.utils.book_append_sheet(wb, ws, 'Trip History');
-                XLSX.writeFile(wb, `movex_history_${new Date().toISOString().split('T')[0]}.xlsx`);
+                XLSX.writeFile(wb, `Zride_history_${new Date().toISOString().split('T')[0]}.xlsx`);
                 
             } else if (format === 'csv') {
                 const ws = XLSX.utils.json_to_sheet(filtered);
@@ -4900,7 +4900,7 @@
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = `movex_history_${new Date().toISOString().split('T')[0]}.csv`;
+                a.download = `Zride_history_${new Date().toISOString().split('T')[0]}.csv`;
                 a.click();
                 
             } else if (format === 'print') {
@@ -4908,7 +4908,7 @@
                 printWindow.document.write(`
                     <html>
                         <head>
-                            <title>MoveX Trip History</title>
+                            <title>Zride Trip History</title>
                             <style>
                                 body { font-family: Arial; padding: 20px; }
                                 table { width: 100%; border-collapse: collapse; }
@@ -4917,7 +4917,7 @@
                             </style>
                         </head>
                         <body>
-                            <h1>MoveX Trip History</h1>
+                            <h1>Zride Trip History</h1>
                             <p>Generated: ${new Date().toLocaleString()}</p>
                             <table>
                                 <thead>
@@ -5039,16 +5039,16 @@
             const username = firstName.toLowerCase() + lastName.toLowerCase().substring(0, 2);
             const password = username + new Date().getDate() + (new Date().getMonth() + 1);
             
-            const subject = encodeURIComponent('MoveX Dispatcher Invitation');
+            const subject = encodeURIComponent('Zride Dispatcher Invitation');
             const body = encodeURIComponent(
                 `Hello ${firstName} ${lastName},\n\n` +
-                `You have been invited to join MoveX Dispatch as a Dispatcher.\n\n` +
+                `You have been invited to join Zride Dispatch as a Dispatcher.\n\n` +
                 `Login credentials:\n` +
                 `Username: ${username}\n` +
                 `Password: ${password}\n\n` +
                 `Login URL: ${window.location.origin}\n\n` +
                 `Please login and change your password.\n\n` +
-                `Best regards,\nMoveX Dispatch Team`
+                `Best regards,\nZride Dispatch Team`
             );
             
             window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`, '_blank');
